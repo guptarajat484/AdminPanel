@@ -1,8 +1,11 @@
-const authrouter = require("./auth-routes");
-const adminroutes = require("./admin-routes");
-function routes(app) {
-  app.use("", authrouter)(app);
-  app.use("/admin", adminroutes)(app);
-}
+const express=require('express')
+const authRoute=require('./auth-routes')
+const adminRoute=require('./admin-routes')
 
-module.exports = routes;
+const router=express.Router()
+
+router.use('/',authRoute);
+router.use('/admin',adminRoute)
+
+
+module.exports=router
