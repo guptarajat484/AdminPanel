@@ -1,6 +1,6 @@
 const express=require('express')
 
-require('dotenv').config({path:'./config'})
+require('dotenv').config({ path: './config/.env' })
 require('./config/dbconfig')
 const indexRoute=require('./src/routes/index-routes')
 
@@ -15,7 +15,7 @@ app.use(express.urlencoded({
 
 app.use(express.json())
 
-app.use(indexRoute)
+app.use('/api',indexRoute)
 
 
 app.listen(port,()=>{
